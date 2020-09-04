@@ -12,16 +12,16 @@
 
 
 '''print the below sequence using tuple starting from 2 and having 20 elements
-2 * 1 = 2
-3 * 2 = 6
-4 * 3 = 12
+2 * 4 = 8
+3 * 5 = 15
+4 * 6 = 24
 ..........
 ..........'''
 
 # numbers = (tuple(range(2, 22)))
 # print(len(numbers), '\n')
 
-# for idx, idy in enumerate(numbers, start=1):
+# for idx, idy in enumerate(numbers, start=4):
 #     print(idy, '*', idx, '=', (idy * idx))
 
 

@@ -52,3 +52,9 @@ Question 8: Print the following pattern
 4 4 4 4 
 5 5 5 5 5
 '''
+# count = 0
+# number = range(1, 6)
+
+# for idx in number:
+#     count += 1
+#     print(str(idx) * count)

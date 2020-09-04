@@ -8,3 +8,13 @@
 
 * In this repository, I will be gradually add problems statements with my own solutions. Also, I may try to explain the code via comments.
 ---
+
+## *How to add Problem Statements*?
+* Go to [exercise.py](https://github.com/kwattorama/p_for_python/blob/master/exercise.py) for making edits
+* Scroll at the end of this script and write the problem statement using triple quotes. As show below
+
+```python
+'''Write a python code to swap the two integers'''
+```
+
+## *How to add your own solutions?*

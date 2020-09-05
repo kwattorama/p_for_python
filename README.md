@@ -11,7 +11,7 @@
 
 ## *How to add Problem Statements*?
 * Go to [exercise.py](https://github.com/kwattorama/p_for_python/blob/master/exercise.py) for making edits
-* Scroll at the end of this script and write the problem statement using triple quotes. As show below
+* Scroll at the end of this script and write the problem statement using triple quotes. As shown below
 
 ```python
 '''Write a python code to swap the two integers'''

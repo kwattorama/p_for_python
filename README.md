@@ -1,3 +1,4 @@
+![](images/python/1.jpg)
 # p_for_python
 
 * This repository contains the Python Beginner Level problem statements and their solutions. I collected it to practice and solve all the listed problems with python.

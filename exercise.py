@@ -1,4 +1,17 @@
+'''Given a two integer numbers return their product
+ and
+if the product is greater than 1000, then return their sum'''
+
+# num_1 = float(input("Enter first number: "))
+# num_2 = float(input("Enter second number: "))
+# mul = num_1 * num_2
+# if mul > 1000:
+#     print(f"sum of numbers is {num_1 + num_2}")
+# else:
+#     print(f"product of numbers is {mul}")
 ''' 
+
+
 Q.4} Given a string and an integer number n, remove characters from a string starting from zero up to n and return a new string'''
 
 # word = input("Enter the word>>> ")

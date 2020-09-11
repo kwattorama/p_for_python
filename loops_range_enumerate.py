@@ -1,14 +1,14 @@
 '''PRINT THE NESTED LIST ELEMENTS'''
-# given = ['ABC', [5, 5.4, 'XA'], 'xyz', None]
+# given = ["ABC", [5, 5.4, "XA"], "xyz", None]
 # for idx in given[1]:
 #     print(idx)
 
 
 '''if kwatt is present in the given list then print 'i am kwatt' '''
-# given = ['xai', 'pranali', 'shivam', 'nimesh', 'kwatt']
+# given = ["xai", "pranali", "shivam", "nimesh", "kwatt"]
 # for idx in given:
-#     if idx == 'kwatt':
-#         print('i am kwatt')
+#     if idx == "kwatt":
+#         print("i am kwatt")
 
 
 '''print the below sequence using tuple starting from 2 and having 20 elements

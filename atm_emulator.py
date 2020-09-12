@@ -13,7 +13,7 @@
 # Exit message
 
 import time
-import random
+# import random
 
 from users import users
 
@@ -30,7 +30,7 @@ while True:
 
         lang = int(input("Choose your language[1/2]>>> "))
 
-        if lang == 2 and lang:
+        if lang == 2:
             print(
                 "This feature is coming soon...Until then By default, its's set to English")
         elif lang != 1:
@@ -55,7 +55,7 @@ while True:
                 while True:
                     print("What would you like to do?")
                     options = ["Check Balance", "Withdraw", "Deposite(This service is currently not available)",
-                               "Transfer(This service is currently not available)", "Change the PIN", "Exit"]
+                               "Transfer", "Change the PIN", "Exit"]
                     for idx, option in enumerate(options, start=1):
                         print(f"{idx}. {option}")
 
@@ -64,45 +64,51 @@ while True:
                     if task in [1, 2, 3, 4, 5, 6]:
                         if task == 1:
                             print(
-                                "Please wait..Your account details are getting fetched..\n")
+                                'Please wait..Your account details are getting fetched..\n')
                             time.sleep(1.0)
                             print(
-                                f"Your TBP bank a/c balance is {currency}{balance}.\n")
+                                f'Your TBP bank a/c balance is {currency}{balance}.\n')
                             time.sleep(2.0)
                         elif task == 2:
-                            print("1. Saving Account\n2. Current Account")
-                            acc_type_ip = input("Choose your account type>>>")
+                            print('1. Saving Account\n2. Current Account')
+                            acc_type_ip = input('Choose your account type>>>')
                             if acc_type_ip == '1':
-                                withdraw = int(input("Enter the amount>>>"))
+                                withdraw = int(input('Enter the amount>>>'))
                                 if withdraw > balance:
                                     print(
-                                        "Withdraw amount is greater than your Account balance")
+                                        'Withdraw amount is greater than your Account balance')
                                 else:
                                     balance = balance - withdraw
                                     print(
                                         f"your account balance is {currency}{balance}")
                                     time.sleep(3.0)
                             elif acc_type_ip == '2':
-                                print("You dont have Current account")
+                                print('You dont have Current account')
                             else:
-                                print("Invalid Choice")
+                                print('Invalid Choice')
                                 break
                         elif task == 3:
                             pass  # Coming soon...
                         elif task == 4:
-                            receiver = int(
-                                input("Enter the Account Number>>> "))
+                            receiver = int(input("Enter the Account Number>>>"))
+                            receiver_1 = int(input("Re enter the Account Number>>> "))
+                            print("Please wait")
                             for pin in users:
                                 if users[pin]["account_no"] == receiver:
-                                            t_amount = int(input(f"Enter the amount to transfer money to{users[pin]["account_no"]["first_name"]} >>> "))
-
-                                else: 
-                                    print("Your entered a/c number is wrong. Try again")
-                                    break
+                                    if receiver == receiver_1:
+                                        receiver_money = int(input("Enter the amount>>>"))
+                                        if receiver_money > 0.6 * users[pin]["balance"]:
+                                            print("You can only transfer 60% of your TBP bank balance")
+                                        else:
+                                            users[pin]["balance"] = users[pin]["balance"] + receiver_money
+                                            balance = balance - receiver_money
+                                            print(
+                                                f'Money Transfer to {users[pin]["first_name"]} {users[pin]["last_name"]} is successful.\na/c number : ******{str(users[pin]["account_no"])[6:]}\nSend amount: ${receiver_money}')
+                                            # print(f'Your account balance is {balance}')
                         elif task == 5:
-                            new_pin=int(input("Enter 4 digit NEW PIN>>>"))
+                            new_pin=int(input('Enter 4 digit NEW PIN>>>'))
                             new_pin=int(
-                                input("Please re-enter 4 digit NEW PIN>>>"))
+                                input('Please re-enter 4 digit NEW PIN>>>'))
                             if len(str(new_pin)) == 4:
                                 temp=users[atm_pin]
 
@@ -119,7 +125,7 @@ while True:
                         print("Invalid Choice. Try again...\n")
                 break
             else:
-                attempt += 1
+                attempt += 1  
                 if attempt == 2:
                     print("Invalid ATM Pin. Only 2 attempts remaining...")
                 elif attempt == 3:
@@ -131,7 +137,7 @@ while True:
     else:
         print("Card not properly inserted! Try Again...")
         print("1. Continue\n2. Cancel")
-        c=input("Enter your choice[1/2]>>> ")
+        c = input("Enter your choice[1/2]>>> ")
         if c == "1":
             continue
         else:

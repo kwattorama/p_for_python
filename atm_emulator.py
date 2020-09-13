@@ -64,19 +64,19 @@ while True:
                     if task in [1, 2, 3, 4, 5, 6]:
                         if task == 1:
                             print(
-                                'Please wait..Your account details are getting fetched..\n')
+                                "Please wait..Your account details are getting fetched..\n")
                             time.sleep(1.0)
                             print(
-                                f'Your TBP bank a/c balance is {currency}{balance}.\n')
+                                f"Your TBP bank a/c balance is {currency}{balance}.\n")
                             time.sleep(2.0)
                         elif task == 2:
-                            print('1. Saving Account\n2. Current Account')
-                            acc_type_ip = input('Choose your account type>>>')
-                            if acc_type_ip == '1':
-                                withdraw = int(input('Enter the amount>>>'))
+                            print("1. Saving Account\n2. Current Account")
+                            acc_type_ip = input("Choose your account type>>>")
+                            if acc_type_ip == "1":
+                                withdraw = int(input("Enter the amount>>>"))
                                 if withdraw > balance:
                                     print(
-                                        'Withdraw amount is greater than your Account balance')
+                                        "Withdraw amount is greater than your Account balance")
                                 else:
                                     balance = balance - withdraw
                                     print(

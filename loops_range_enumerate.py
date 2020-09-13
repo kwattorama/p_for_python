@@ -22,7 +22,7 @@
 # print(len(numbers), '\n')
 
 # for idx, idy in enumerate(numbers, start=4):
-#     print(idy, '*', idx, '=', (idy * idx))
+#     print(idy, "*", idx, "=", (idy * idx))
 
 
 '''form a tuple having values upto 25, print the first 5 numbers'''
@@ -35,15 +35,15 @@
 
 '''print the all values of key-'job' with their sequence number'''
 
-# given = {'name': 'shivam', 'job': ('doc', 'engg', 'gamer', 'teacher')}
+# given = {"name": "shivam", "job": ("doc", "engg", "gamer", "teacher")}
 # for idx, profession in enumerate(given['job'], start=1):
 #     print(idx, profession)
 
 
 '''Print the values of the inner dict(nested dict) with their sequence number'''
 
-# given = {'name': 'CR07', 'job': {'doc': 'house', 'True': False, 'teacher': 'book'}}
-# new_dict = given['job']
+# given = {"name": "CR07", "job": {"doc": "house", "True": False, "teacher": "book"}}
+# new_dict = given["job"]
 # print(new_dict)
 # print(new_dict.values(), '\n')
 

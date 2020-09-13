@@ -77,25 +77,25 @@ while True:
                                 "Please wait..Your account details are getting fetched..\n")
                             time.sleep(1.0)
                             print(
-                                f'Your TBP bank a/c balance is {currency}{balance}.\n')
+                                f"Your TBP bank a/c balance is {currency}{balance}.\n")
                             time.sleep(2.0)
                         elif task == 2:
-                            print('1. Saving Account\n2. Current Account')
-                            acc_type_ip = input('Choose your account type>>>')
-                            if acc_type_ip == '1':
-                                withdraw = int(input('Enter the amount>>>'))
+                            print("1. Saving Account\n2. Current Account")
+                            acc_type_ip = input("Choose your account type>>>")
+                            if acc_type_ip == "1":
+                                withdraw = int(input("Enter the amount>>>"))
                                 if withdraw > balance:
                                     print(
-                                        'Withdraw amount is greater than your Account balance')
+                                        "Withdraw amount is greater than your Account balance")
                                 else:
                                     balance = balance - withdraw
                                     print(
                                         f"your account balance is {currency}{balance}")
                                     time.sleep(3.0)
-                            elif acc_type_ip == '2':
-                                print('You dont have Current account')
+                            elif acc_type_ip == "2":
+                                print("You dont have Current account")
                             else:
-                                print('Invalid Choice')
+                                print("Invalid Choice")
                                 break
                         elif task == 3:
                             blink("Coming Soon")
@@ -115,12 +115,11 @@ while True:
                                             print(
                                                 "You can only transfer 60% of your TBP bank balance")
                                         else:
-                                            users[pin]["balance"] = users[pin]["balance"] + \
-                                                receiver_money
+                                            users[pin]["balance"] = users[pin]["balance"] + receiver_money
                                             balance = balance - receiver_money
                                             print(
-                                                f'Money Transfer to {users[pin]["first_name"]} {users[pin]["last_name"]} is successful.\na/c number : ******{str(users[pin]["account_no"])[6:]}\nSend amount: ${receiver_money}')
-                                            # print(f'Your account balance is {balance}')
+                                                f"Money Transfer to {users[pin]["first_name"]} {users[pin]["last_name"]} is successful.\na/c number : ******{str(users[pin]["account_no"])[6:]}\nSend amount: ${receiver_money}')
+                                            print(f'Your account balance is {balance}")
                         elif task == 5:
                             new_pin = int(input('Enter 4 digit NEW PIN>>>'))
                             new_pin = int(

@@ -82,10 +82,10 @@ while True:
                                     print(
                                         f"your account balance is {currency}{balance}")
                                     time.sleep(3.0)
-                            elif acc_type_ip == '2':
-                                print('You dont have Current account')
+                            elif acc_type_ip == "2":
+                                print("You dont have Current account")
                             else:
-                                print('Invalid Choice')
+                                print("Invalid Choice")
                                 break
                         elif task == 3:
                             pass  # Coming soon...
@@ -106,9 +106,9 @@ while True:
                                                 f'Money Transfer to {users[pin]["first_name"]} {users[pin]["last_name"]} is successful.\na/c number : ******{str(users[pin]["account_no"])[6:]}\nSend amount: ${receiver_money}')
                                             # print(f'Your account balance is {balance}')
                         elif task == 5:
-                            new_pin=int(input('Enter 4 digit NEW PIN>>>'))
+                            new_pin=int(input("Enter 4 digit NEW PIN>>>"))
                             new_pin=int(
-                                input('Please re-enter 4 digit NEW PIN>>>'))
+                                input("Please re-enter 4 digit NEW PIN>>>"))
                             if len(str(new_pin)) == 4:
                                 temp=users[atm_pin]
 

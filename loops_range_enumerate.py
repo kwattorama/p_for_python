@@ -36,7 +36,7 @@
 '''print the all values of key-'job' with their sequence number'''
 
 # given = {"name": "shivam", "job": ("doc", "engg", "gamer", "teacher")}
-# for idx, profession in enumerate(given['job'], start=1):
+# for idx, profession in enumerate(given["job"], start=1):
 #     print(idx, profession)
 
 

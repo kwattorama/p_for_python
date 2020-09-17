@@ -13,7 +13,7 @@
 # Exit message
 
 import time
-# import random
+
 
 from users import users
 
@@ -21,7 +21,8 @@ print("\nWelcome! to The Billionaires Piggy Bank\n")
 while True:
 
     ins = input("press 'I' after inserting the card>>> ")
-
+ 
+    
     if ins == "I" or ins == "i":
         languages = ["English", "Hindi"]
 
@@ -41,7 +42,7 @@ while True:
 
         while attempt <= 3:
             time.sleep(2)
-            atm_pin = int(input("Enter your 4 digit ATM pin>>> "))
+            atm_pin = int(input("\nEnter your 4 digit ATM pin>>> "))
 
             if atm_pin in users:
                 first_name = users[atm_pin]["first_name"]
@@ -50,71 +51,98 @@ while True:
                 balance = users[atm_pin]["balance"]
                 currency = users[atm_pin]["currency"]
                 print(
-                    f"Hello {first_name} {last_name}, Your TBP Bank a/c no. is {account_no}\n")
+                    f"\nHello {first_name} {last_name}, Your TBP Bank a/c no. is {account_no}")
 
                 while True:
-                    print("What would you like to do?")
-                    options = ["Check Balance", "Withdraw", "Deposite(This service is currently not available)",
+                    print("\nWhat would you like to do?")
+                    options = ["Check Balance", "Withdraw", "Deposit",
                                "Transfer", "Change the PIN", "Exit"]
+                    
                     for idx, option in enumerate(options, start=1):
                         print(f"{idx}. {option}")
 
-                    task = int(input("\nChoose from above options>>> "))
+                    task = int(input("Choose from above options>>> "))
 
                     if task in [1, 2, 3, 4, 5, 6]:
+                        
                         if task == 1:
                             print(
-                                'Please wait..Your account details are getting fetched..\n')
+                                'Please wait..Your account details are getting fetched..')
                             time.sleep(1.0)
                             print(
-                                f'Your TBP bank a/c balance is {currency}{balance}.\n')
-                            time.sleep(2.0)
+                                f"\na/c number: {account_no}\nName: {first_name} {last_name}\nBalance: {currency}{balance}")
+                            time.sleep(3.0)
                         elif task == 2:
-                            print('1. Saving Account\n2. Current Account')
-                            acc_type_ip = input('Choose your account type>>>')
+                            print("1. Saving Account\n2. Current Account")
+                            acc_type_ip = input('Choose your account type>>> ')
+
                             if acc_type_ip == '1':
-                                withdraw = int(input('Enter the amount>>>'))
+                                withdraw = int(input('\nEnter the amount>>> $'))
+
                                 if withdraw > balance:
                                     print(
                                         'Withdraw amount is greater than your Account balance')
                                 else:
                                     balance = balance - withdraw
                                     print(
-                                        f"your account balance is {currency}{balance}")
+                                        f"\nPlease collect your cash...\nyour account balance is {currency}{balance}")
                                     time.sleep(3.0)
-                            elif acc_type_ip == '2':
-                                print('You dont have Current account')
-                            else:
-                                print('Invalid Choice')
-                                break
-                        elif task == 3:
-                            print(
-                                "Only $2000, $500 and $200 notes are acceptable.\nYou can deposit upto $50000 only")
-                            cc_1 = input("1. Confirm\n2. Cancel\nPress 1 or 2 >>>")
-                            if cc_1 == "1":
-                                print("Plase insert your cash.\nEnter counts of cash notes/ >>>")
-                                two_thousand = int(input("$2000 x ",))
-                                five_hundred = int(input("$500 x "))
-                                two_hundred = int(input("$200 x "))
-                                total = (2000 * two_thousand) + (500 * five_hundred) + (200 * two_hundred)
-                                if total <= 50000:
-                                    print(f"Total amount to be deposite: ${total}")
-                                    cc_2 = input("1. Continue\n2. Cancel\nPress 1 or 2 >>>")
-                                    if cc_2 == "1":
-                                        pass
 
-                                else:
-                                    print("Your deposite amount is more than 50000")
+                            elif acc_type_ip == '2':
+                                print('\nYou dont have Current account')
+                                time.sleep(2.5)
                             else:
-                                pass
+                                print('\nInvalid Choice')
+                                time.sleep(2.5)
+                               
+                        elif task == 3:
+                            print(f"Your transaction is being processed \nPlease wait...")
+                            time.sleep(2.0)
+                            print(
+                                "\nOnly $2000, $500 and $200 notes are acceptable.\nYou can deposit upto $50000 only.")
+                            cc_1 = input("1. Continue\n2. Cancel\nPress 1 or 2 >>> ")
+
+                            if cc_1 == "1":
+                                print("\nPlease insert your cash...\nEnter numbers of cash note>>>")
+                                two_thousand = int(input("$2000 x "))
+                                # https: // stackoverflow.com/a/36210179
+                                print(f"\033[{len(str(two_thousand)) + 8}C\033[1A",  
+                                    f"= {2000 * two_thousand}")
+                                five_hundred = int(input("$500 x "))
+                                print(f"\033[{len(str(five_hundred)) + 8}C\033[1A",
+                                    f"= {500 * five_hundred}")
+                                two_hundred = int(input("$200 x "))
+                                print(f"\033[{len(str(two_hundred)) + 8}C\033[1A",
+                                    f"= {200 * two_hundred}")
+                                total = (2000 * two_thousand) +(500 * five_hundred) + (200 * two_hundred)
+
+                                if total <= 50000:
+                                    print(
+                                        f"Please wait...\nvalidating cash...")
+                                    print(f"\nTotal amount to be deposite: ${total}")
+                                    cc_2 = input("1. Confirm\n2. Add more cash(this service is currently not available)\n3. Cancel\nPress 1 or 2 or 3 >>> ")
+
+                                    if cc_2 == "1":
+                                        balance = balance + total
+                                        print(
+                                            f"Transaction Complete.\nYour TBP a/c balance is {currency}{balance}")
+                                    elif cc_2 == "2":
+                                        pass
+                                    else:
+                                        pass
+                                else:
+                                    print(f"\nPlease remove your cash\nYou can deposit upto $50000 only.")
                         elif task == 4:
-                            receiver = int(input("Enter the Account Number>>>"))
+                            receiver = int(input("\nEnter the Account Number>>> "))
                             receiver_1 = int(input("Re enter the Account Number>>> "))
                             print("Please wait")
                             for pin in users:
+
                                 if users[pin]["account_no"] == receiver:
+
                                     if receiver == receiver_1:
-                                        receiver_money = int(input("Enter the amount>>>"))
+                                        receiver_money = int(input("Enter the amount>>> "))
+
                                         if receiver_money > 0.6 * users[pin]["balance"]:
                                             print("You can only transfer 60% of your TBP bank balance")
                                         else:
@@ -122,11 +150,12 @@ while True:
                                             balance = balance - receiver_money
                                             print(
                                                 f'Money Transfer to {users[pin]["first_name"]} {users[pin]["last_name"]} is successful.\na/c number : ******{str(users[pin]["account_no"])[6:]}\nSend amount: ${receiver_money}')
-                                            # print(f'Your account balance is {balance}')
+                                            print(f'Your account balance is {balance}')
                         elif task == 5:
-                            new_pin=int(input('Enter 4 digit NEW PIN>>>'))
+                            new_pin=int(input('Enter 4 digit NEW PIN>>> '))
                             new_pin=int(
-                                input('Please re-enter 4 digit NEW PIN>>>'))
+                                input('Please re-enter 4 digit NEW PIN>>> '))
+
                             if len(str(new_pin)) == 4:
                                 temp=users[atm_pin]
 
@@ -143,7 +172,8 @@ while True:
                         print("Invalid Choice. Try again...\n")
                 break
             else:
-                attempt += 1  
+                attempt += 1 
+
                 if attempt == 2:
                     print("Invalid ATM Pin. Only 2 attempts remaining...")
                 elif attempt == 3:
@@ -156,6 +186,7 @@ while True:
         print("Card not properly inserted! Try Again...")
         print("1. Continue\n2. Cancel")
         c = input("Enter your choice[1/2]>>> ")
+        
         if c == "1":
             continue
         else:

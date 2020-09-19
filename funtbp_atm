@@ -1,15 +1,14 @@
 
-# ATM code using Functions
+# ATM code using Functions blink
 # Welcome message
 # Enter the card
 # Language selection - English, Hindi
 # Enter Pin
 # Verify Pin
-# Show Menu - Withdraw, Chnage Pin, Check balance, Transfer, Deposite
+# Show Menu - Check balance, Withdraw, Deposite Chnage Pin, Transfer, Exit
 #   Withdraw - Saving, Current
 #              Saving - Enter Amount
 #              Processing Prompt and collect cash message
-# Print Receipt option - Y/N
 # Exit message
 
 import time
@@ -62,8 +61,7 @@ while True:
                 account_no = users[atm_pin]["account_no"]
                 balance = users[atm_pin]["balance"]
                 currency = users[atm_pin]["currency"]
-                print(
-                    f"Hello {first_name} {last_name}, Your TBP Bank a/c no. is {account_no}\n")
+                print(f"Hello {first_name} {last_name}, Your TBP Bank a/c no. is {account_no}\n")
 
                 while True:
                     print("What would you like to do?")
@@ -82,18 +80,18 @@ while True:
                             blink("a/c details are getting fetched", 2)
 
                             print(
-                                f"TBP bank account number: {account_no}\nName: {first_name} {last_name}\nBalance: {currency}{balance}")
+                                f"TBP bank account number: {account_no}\nName: {first_name} {last_name}\nBalance: {currency}{balance}\n")
                             time.sleep(2.0)
                         elif task == 2:
-                            print('1. Saving Account\n2. Current Account')
-                            acc_type_ip = input('Choose your account type>>>')
+                            print("1. Saving Account\n2. Current Account")
+                            acc_type_ip = input("Choose your account type>>>")
 
-                            if acc_type_ip == '1':
-                                withdraw = int(input('Enter the amount>>>'))
+                            if acc_type_ip == "1":
+                                withdraw = int(input("Enter the amount>>>"))
 
                                 if withdraw > balance:
                                     print(
-                                        'Withdraw amount is greater than your Account balance')
+                                        "Withdraw amount is greater than your Account balance")
                                 else:
                                     balance = balance - withdraw
                                     blink("Processing transaction", 4)
@@ -101,10 +99,10 @@ while True:
                                     print(
                                         f"your account balance is {currency}{balance}")
                                     time.sleep(3.0)
-                            elif acc_type_ip == '2':
-                                print('You dont have Current account')
+                            elif acc_type_ip == "2":
+                                print("You dont have Current account")
                             else:
-                                print('Invalid Choice')
+                                print("Invalid Choice")
                                 break
                         elif task == 3:
                             blink("Processing", 2)
@@ -118,6 +116,7 @@ while True:
                                 print("Enter numbers of cash note>>>")
                                 two_thousand = int(input("$2000 x "))
                                 # https: // stackoverflow.com/a/36210179
+                                # Prints output from input in single line
                                 print(f"\033[{len(str(two_thousand)) + 8}C\033[1A",
                                       f"= {2000 * two_thousand}")
                                 five_hundred = int(input("$500 x "))
@@ -141,9 +140,8 @@ while True:
                                         balance = balance + total
                                         blink("Processing", 2)
                                         print(
-                                            f"\nTransaction Complete.\nYour TBP a/c balance is {currency}{balance}\n")
-                                    else:
-                                        pass
+                                            f"Transaction Complete.\nYour TBP a/c balance is {currency}{balance}\n")
+                                        time.sleep(2.0)
                                 else:
                                     print(
                                         f"\nPlease remove your cash\nYou can deposit upto $50000 only.")
@@ -174,9 +172,9 @@ while True:
                                                 f'Money Transfer to {users[pin]["first_name"]} {users[pin]["last_name"]} is successful.\na/c number : ******{str(users[pin]["account_no"])[6:]}\nSend amount: ${receiver_money}')
                         elif task == 5:
                             blink("Processing", 1)
-                            new_pin = int(input('Enter 4 digit NEW PIN>>>'))
+                            new_pin = int(input("Enter 4 digit NEW PIN>>>"))
                             new_pin = int(
-                                input('Please re-enter 4 digit NEW PIN>>>'))
+                                input("Please re-enter 4 digit NEW PIN>>>"))
 
                             if len(str(new_pin)) == 4:
                                 temp = users[atm_pin]
@@ -188,7 +186,8 @@ while True:
                                 time.sleep(2.0)
                                 print("Your pin has been change successfully")
                         elif task == 6:
-                            print("Thank you for visiting\nHave a nice day!")
+                            print("\nThank you for visiting\nHave a nice day!\n")
+                            time.sleep(1.0)
                             break
                     else:
                         print("Invalid Choice\n")
@@ -203,7 +202,7 @@ while True:
                     print("Invalid ATM Pin. Only 1 attempt remaining")
                 else:
                     print(
-                        f"***********Securit Aleart!!!***********\n\nThis ATM card has been BLOCKED for Security reasons.\nTBP bank will contact this card holder soon.\n")
+                        f"*********** Security Aleart!!! ***********\n\nThis ATM card has been BLOCKED for Security reasons.\nTBP bank will contact this card holder soon.\n")
         break
     else:
         blink("Card not properly inserted! Try Again.", 2)

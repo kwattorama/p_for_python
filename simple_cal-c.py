@@ -46,11 +46,11 @@ while True:
         angle = input("\n1. rad to degree\n2.degree to rad\nPress[1/2]>>> ")
 
         if angle == "1":
-            x = int(input("Radian: "))
-            
-            print
+            x = float(input("Radian: "))
+            print(f"{x} rad = {math.degrees(x)} degree")
         else:
-            pass        
+            x = float(input("Degree: "))
+            print(f"{x} degree = {math.radians(x)} rad")
     elif calc == 9:
         break
     else:

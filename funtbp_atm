@@ -8,7 +8,8 @@
 # Show Menu - Check balance, Withdraw, Deposite Chnage Pin, Transfer, Exit
 #   Withdraw - Saving, Current
 #              Saving - Enter Amount
-#              Processing Prompt and collect cash message
+#              Processing Prompt and collect cash, 
+# last message
 # Exit message
 
 import time

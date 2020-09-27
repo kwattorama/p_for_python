@@ -1,20 +1,22 @@
-# this script will take inputs manually from user according to choosen
+# this script will use manual inputs from user according to choosen
 # stock chart to trade and then suggest if its profitable to trade or not
 # mainly depending on chart trend, candle pattern, volume, rsi and 
 # risk-reward ratio
-# ============================================================================
+# ======================================================================
 
 # TODO(kwattorama)
-# - make function to show and take input from user
 # - add RSI, FIBO, support and resistane input
 # - calculate reward, risk and RR ratio
+# -use dict for the whole details
+
+
 
 indicators = {
     "time_frames": ["Hourly", "Daily", "Weekly", "Monthly"],
     "ema": ["5ema > 13ema > 26ema", "5ema < 13ema < 26ema", "No ema crossing"],
     "volume": ["Good/Huge", "Average", "below Average"],
     "candle_pattern":
-        {
+    {
         "Bullish_candle": ["Plain green", "Bullish Piercing",
                            "Bullish Engulf", "Morning star",
                            "Inverted hammer"],
@@ -22,7 +24,7 @@ indicators = {
                            "Bearish Engulf", "Evening star", "Hammer"],
         "Neutral_candle": ["Bullish Harami", "Bearish Harami",
                            "Hanging man", "Spinning top", "Doji"]
-        },
+    },
     "trend": ["Uptrend", "Downtrend", "Sideway"],
     "RSI": ["Overbrought", "Oversold", "Average"],
     "chart_pattern": ["Double Top", "Head & Shoulders", "Inverted H & S",
@@ -35,7 +37,6 @@ indicators = {
 
 script_name = input("Enter the stcok name: ")
 print("\n")
-
 for tf_idx, time_frames in enumerate(indicators["time_frames"], start=1):
   print(f"{tf_idx}. {time_frames}")
 
@@ -62,3 +63,12 @@ for chart_idx, chart_pattern in enumerate(indicators["candle_pattern"].values(),
  
 candle_pattern = input(
     f"\nIn \"{script_name}\" chart is there any candlestick pattern from the any one of the above group?>>> ")
+    print("\n")
+
+for trend_idx, trend in enumerate(indicators["trend"], start=1):
+  print(f"Group-{trend_idx}.{trend}\n")
+
+your_tf_trend = input(f"Which trend is in your time frame[1/2/3]>>> ")
+guide_tf_trend = input("Which trend is in guide time frame[1/2/3]>>> ")
+lower_tf_trend = input("Which trend is in lower time frame[1/2/3]>>> ")
+print("\n")

@@ -8,7 +8,7 @@
 # - add FIBO, support and resistane input
 # - make decision based on user input
 # - calculate reward, risk and RR ratio
-# -use dict for the whole details
+# - add more elif condition for average buy/sell
 
 
 
@@ -33,7 +33,7 @@ indicators = {
     "breakdown": ["Triangle breakdown", "Rectangular breakdown",
                   "Flag breakdown", "Trendline breakdown"],
     "divergence": ["Bullish div (price higher high & indicatior lower high)",
-                   "Bearish div (price lower high & indicator higher low)"]
+                   "Bearish div (price lower high & indicator higher low)", "No divergence"]
 }
 
 script_name = input("Enter the stcok name: ")
@@ -83,7 +83,7 @@ trend = input(f"RSI is..? >>> ")
 for chart_idx, chart_pattern in enumerate(indicators["chart_pattern"], start=1):
     print(f"{chart_idx}.{chart_pattern}")
   
-trend = input(f"RSI is..? >>> ")
+rsi = input(f"RSI is..? >>> ")
 
 for breakdown_idx, breakdown in enumerate(indicators["breakdown"], start=1):
   print(f"{breakdown_idx}.{breakdown}")
@@ -93,4 +93,11 @@ trend = input(f"Choose any breakdown occuring/may occur in guide time frame and 
 for divergence_idx, divergence in enumerate(indicators["divergence"], start=1):
   print(f"{divergence_idx}.{divergence}")
   
-trend = input(f"Any divergence? >>> ")
+divergence = input(f"Any divergence? >>> ")
+
+if ema == "1" and volume == "1" and candle_pattern == "1" and trend == "1" and divergence == "1" and rsi == "2" or rsi == "3":
+    print("Strong BUY")
+elif (ema, volume, candle_pattern, trend, divergence == "2" or rsi == "1" or rsi == "3"):
+    print("Strong SELL")
+elif (ema, candle_pattern, divergence == 3 or volume, trend == 3):
+    print("Wait..No clear signal to trade")

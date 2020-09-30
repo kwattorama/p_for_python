@@ -5,7 +5,6 @@
 # ======================================================================
 # TODO(kwattorama)
 # - add FIBO, support and resistane input
-# - make decision based on user input
 # - calculate reward, risk and RR ratio
 # - add more elif condition for average buy/sell
 # - use the trend indicator for all the time frames

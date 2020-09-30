@@ -3,12 +3,12 @@
 # mainly depending on chart trend, candle pattern, volume, rsi and 
 # risk-reward ratio
 # ======================================================================
-
 # TODO(kwattorama)
 # - add FIBO, support and resistane input
 # - make decision based on user input
 # - calculate reward, risk and RR ratio
 # - add more elif condition for average buy/sell
+# - use the trend indicator for all the time frames
 
 
 
@@ -28,10 +28,9 @@ indicators = {
     },
     "trend": ["Uptrend", "Downtrend", "Sideway"],
     "rsi": ["Overbrought", "Oversold", "Average"],
-    "chart_pattern": ["Double Top", "Head & Shoulders", "Inverted H & S",
-                      "Cup & Handle", "Double bottom", "No comfirm pattern"],
-    "breakdown": ["Triangle breakdown", "Rectangular breakdown",
-                  "Flag breakdown", "Trendline breakdown"],
+    "chart_pattern": ["Inverted Head & Shoulders", "Cup & Handle",
+                      "Double bottom","Double Top", "Head & Shoulders",
+                      "No comfirm pattern"],
     "divergence": ["Bullish div (price higher high & indicatior lower high)",
                    "Bearish div (price lower high & indicator higher low)", "No divergence"]
 }
@@ -79,25 +78,23 @@ for rsi_idx, rsi in enumerate(indicators["rsi"], start=1):
   print(f"{rsi_idx}.{rsi}")
   
 trend = input(f"RSI is..? >>> ")
+print(f"{'*' * 50}")
 
 for chart_idx, chart_pattern in enumerate(indicators["chart_pattern"], start=1):
     print(f"{chart_idx}.{chart_pattern}")
   
-rsi = input(f"RSI is..? >>> ")
-
-for breakdown_idx, breakdown in enumerate(indicators["breakdown"], start=1):
-  print(f"{breakdown_idx}.{breakdown}")
-  
-trend = input(f"Choose any breakdown occuring/may occur in guide time frame and your time frame >>> ")
+rsi = input(f"Is there any pattern seen in chart from above option? >>> ")
+print(f"{'*' * 50}")
 
 for divergence_idx, divergence in enumerate(indicators["divergence"], start=1):
   print(f"{divergence_idx}.{divergence}")
   
 divergence = input(f"Any divergence? >>> ")
+print(f"{'*' * 50}")
 
-if ema == "1" and volume == "1" and candle_pattern == "1" and trend == "1" and divergence == "1" and rsi == "2" or rsi == "3":
+if ema == "1" and volume == "1" and candle_pattern == "1" and trend == "1" and divergence == "1" and (rsi == "2" or rsi == "3") and (chart_pattern == "1" or chart_pattern == "1" or chart_pattern == "1"):
     print("Strong BUY")
-elif (ema, volume, candle_pattern, trend, divergence == "2" or rsi == "1" or rsi == "3"):
+elif ema == "2" and volume == "2" and candle_pattern == "2" and (rsi == "1" or rsi == "3") and (chart_pattern == "4" or chart_pattern == "5"):
     print("Strong SELL")
 elif (ema, candle_pattern, divergence == 3 or volume, trend == 3):
-    print("Wait..No clear signal to trade")
+    print("Wait for Market to give clear signal to trade...")

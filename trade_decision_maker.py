@@ -3,8 +3,10 @@
 # mainly depending on chart trend, candle pattern, volume, rsi and 
 # risk-reward ratio
 # ======================================================================
+# -remove breakdown
 # TODO(kwattorama)
 # - add FIBO, support and resistane input
+# - make decision based on user input
 # - calculate reward, risk and RR ratio
 # - add more elif condition for average buy/sell
 # - use the trend indicator for all the time frames
@@ -91,9 +93,13 @@ for divergence_idx, divergence in enumerate(indicators["divergence"], start=1):
 divergence = input(f"Any divergence? >>> ")
 print(f"{'*' * 50}")
 
-if ema == "1" and volume == "1" and candle_pattern == "1" and trend == "1" and divergence == "1" and (rsi == "2" or rsi == "3") and (chart_pattern == "1" or chart_pattern == "1" or chart_pattern == "1"):
+if ema == "1" and volume == "1" and candle_pattern == "1" and trend == "1" and divergence == "1" and (rsi == "2" or rsi == "3") and (chart_pattern == "1" or chart_pattern == "2" or chart_pattern == "3"):
     print("Strong BUY")
 elif ema == "2" and volume == "2" and candle_pattern == "2" and (rsi == "1" or rsi == "3") and (chart_pattern == "4" or chart_pattern == "5"):
     print("Strong SELL")
 elif (ema, candle_pattern, divergence == 3 or volume, trend == 3):
     print("Wait for Market to give clear signal to trade...")
+elif (ema == "1" and volume == "1" and (rsi == "2" or rsi == "3")) or ((chart_pattern == "1" or chart_pattern == "2" or chart_pattern == "3") and volume == "1"):
+    print("BUY")
+elif P(ema == "2" and volume == "2" and (rsi == "1" or rsi == "3")) or ((chart_pattern == "4" or chart_pattern == "5") and volume == "1"):
+    print("SELL")

@@ -3,13 +3,11 @@
 # mainly depending on chart trend, candle pattern, volume, rsi and 
 # risk-reward ratio
 # ======================================================================
-# -remove breakdown
 # TODO(kwattorama)
 # - add FIBO, support and resistane input
 # - make decision based on user input
-# - calculate reward, risk and RR ratio
-# - add more elif condition for average buy/sell
-
+# - use the trend indicator for all the time frames
+# - add should user trade for calculated RR ratio
 
 
 
@@ -70,7 +68,7 @@ for trend_idx, trend in enumerate(indicators["trend"], start=1):
   print(f"{trend_idx}.{trend}")
 
 your_tf_trend = input(f"Which trend is in your time frame[1/2/3] >>> ")
-guide_tf_trend = input("Which trend is in guide time frame[1/2/3] >>> ")
+         guide_tf_trend = input("Which trend is in guide time frame[1/2/3] >>> ")
 lower_tf_trend = input("Which trend is in lower time frame[1/2/3] >>> ")
 print(f"{'*' * 50}")
 
@@ -103,3 +101,19 @@ elif (ema == "1" and volume == "1" and (rsi == "2" or rsi == "3")) or ((chart_pa
     print("BUY")
 elif P(ema == "2" and volume == "2" and (rsi == "1" or rsi == "3")) or ((chart_pattern == "4" or chart_pattern == "5") and volume == "1"):
     print("SELL")
+
+entry = int(input("Enter your entry price >>> "))
+sl = int(input("Enter you stop loss >>> "))
+target_1 = int(input("Your first target(support/resistanec basis) >>> "))
+target_2 = int(input("Your second target(Setup/Chart pattern basis) >>> "))
+
+if entry > sl:
+    # for long trade
+    print(f"Reward(minimum) = {target_1 - entry}")
+    print(f"Reward(Max) = {target_2 - entry}")
+    print(f"Risk = {entry - sl}")
+else:
+    # for short trade
+    print(f"Reward(minimum) = {entry - target_1}")
+    print(f"Reward(Max) = {entry - target_2}")
+    print(f"Risk = {sl - entry}")

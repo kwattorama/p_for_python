@@ -52,6 +52,6 @@ while True:
             x = float(input("Degree: "))
             print(f"{x} degree = {math.radians(x)} rad")
     elif calc == 9:
-        break
+       
     else:
         print("Invalid choice")
